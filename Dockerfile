@@ -1,4 +1,4 @@
-FROM ubuntu/xenial
+FROM ubuntu
 MAINTAINER cajetan19
 
 # environment settings
@@ -39,7 +39,7 @@ RUN \
 	/var/lib/apt/lists/* \
 	/var/tmp/* && \
 
-update-ca-certificates && \
+update-ca-certificates
 
 # add local files
 COPY root/ /
