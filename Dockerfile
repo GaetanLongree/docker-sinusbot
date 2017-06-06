@@ -24,7 +24,7 @@ RUN \
 	python \
 	tmux \
 	util-linux \
-	wget 
+	wget \
 	x11vnc \
 	xvfb \
 	libxcursor1 \
