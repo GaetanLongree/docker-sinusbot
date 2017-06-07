@@ -30,13 +30,13 @@ RUN \
 
 # cleanup
  apt-get clean && \
-# rm -rf \
-#	/var/lib/apt/lists/* \
-#	/var/tmp/* && \
+ rm -rf \
+	/var/lib/apt/lists/* \
+	/var/tmp/* && \
  update-ca-certificates
 
 # add local files
-# COPY root/ /
+COPY root/ /
 
 # ports and volumes
 EXPOSE 8087

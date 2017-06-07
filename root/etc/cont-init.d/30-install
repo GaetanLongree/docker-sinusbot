@@ -1,0 +1,20 @@
+#!/usr/bin/with-contenv bash
+
+# make folders
+mkdir -p /config/serverfiles
+
+# fetch installer
+if [ ! -e /config/sinusbot ]; then
+wget -O /config/sinusbot https://www.sinusbot.com/dl/sinusbot-beta.tar.bz2
+tar -xjf /config/sinusbot/sinusbot-beta.tar.bz2
+curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /config/youtube-dl
+fi
+
+# copy default config
+if [ ! -e /config/sinusbot/config.ini.dist ]; then
+cp /defaults/config.ini /config/sinusbot/config.ini
+fi
+
+# permissions
+chown abc:abc -R /config
+chmod a+rx /config/youtube-dl
