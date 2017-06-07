@@ -1,5 +1,0 @@
-#!/usr/bin/with-contenv bash
-
-su - sinusbot -c 'touch /config/sinusbot.log'
-
-su - sinusbot -c './config/sinusbot/sinusbot' &>> /config/sinusbot.log &
