@@ -1,13 +1,15 @@
 #!/usr/bin/with-contenv bash
 
 # make folders
-mkdir -p /config/serverfiles
+mkdir -p /config/sinusbot
 
 # fetch installer
 if [ ! -e /config/sinusbot ]; then
-wget -O /config/sinusbot https://www.sinusbot.com/dl/sinusbot-beta.tar.bz2
-tar -xjf /config/sinusbot/sinusbot-beta.tar.bz2
-curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /config/youtube-dl
+wget -O /config/sinusbot/sinusbot-beta.tar.bz2 https://www.sinusbot.com/dl/sinusbot-beta.tar.bz2
+tar -xjf /config/sinusbot/sinusbot-beta.tar.bz2 -C /config/sinusbot
+cp /config/sinusbot/plugin/libsoundbot_plugin.so /etc/TeamSpeak3-Client-linux_amd64/plugins
+curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /config/sinusbot/youtube-dl
+useradd sinusbot
 fi
 
 # copy default config
@@ -16,5 +18,5 @@ cp /defaults/config.ini /config/sinusbot/config.ini
 fi
 
 # permissions
-chown abc:abc -R /config
-chmod a+rx /config/youtube-dl
+chown sinusbot:sinusbot -R /config
+chmod a+rx /config/sinusbot/youtube-dl

@@ -1,5 +1,5 @@
 #!/usr/bin/with-contenv bash
 
-touch /config/sinusbot.log
+su - sinusbot -c 'touch /config/sinusbot.log'
 
-s6-setuidgid abc /config/sinusbot/sinusbot >> /config/sinusbot.log
+su - sinusbot -c './config/sinusbot/sinusbot' &>> /config/sinusbot.log &
