@@ -31,6 +31,7 @@ RUN \
 	ca-certificates \
 	python \
 	libav-tools \
+	nano \
 	libglib2.0-0 && \
 
 # cleanup
