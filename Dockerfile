@@ -25,17 +25,15 @@ RUN \
 	xvfb \
 	libxcursor1 \
 	ca-certificates \
-	bzip2 \
 	python \
 	libav-tools && \
 
 # cleanup
  apt-get clean && \
- rm -rf \
-	/var/lib/apt/lists/* \
-	/var/tmp/* && \
-
-update-ca-certificates
+# rm -rf \
+#	/var/lib/apt/lists/* \
+#	/var/tmp/* && \
+ update-ca-certificates
 
 # add local files
 # COPY root/ /
