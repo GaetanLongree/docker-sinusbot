@@ -33,7 +33,8 @@ RUN \
  rm -rf \
 	/var/lib/apt/lists/* \
 	/var/tmp/* && \
- update-ca-certificates
+ update-ca-certificates && \
+ useradd sinusbot
 
 # add local files
 COPY root/ /
@@ -47,4 +48,6 @@ RUN  useradd sinusbot && \
 EXPOSE 8087
 VOLUME /config
 
-ENTRYPOINT su - sinusbot -c './config/sinusbot/sinusbot' &>> /config/sinusbot.log &
+ENTRYPOINT chown -R sinusbot:sinusbot /config && \
+		chmod a+rx /config/sinusbot/youtube-dl && \
+		su - sinusbot -c './config/sinusbot/sinusbot' &>> /config/sinusbot.log &
