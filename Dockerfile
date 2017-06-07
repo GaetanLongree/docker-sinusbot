@@ -39,11 +39,6 @@ RUN \
 # add local files
 COPY root/ /
 
-RUN  useradd sinusbot && \
-	chown -R sinusbot:sinusbot /config && \
-	chmod a+rx /config/sinusbot/youtube-dl
-
-
 # ports and volumes
 EXPOSE 8087
 VOLUME /config
