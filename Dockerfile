@@ -42,7 +42,3 @@ COPY root/ /
 # ports and volumes
 EXPOSE 8087
 VOLUME /config
-
-ENTRYPOINT chown -R sinusbot:sinusbot /config && \
-		chmod a+rx /config/sinusbot/youtube-dl && \
-		su - sinusbot -c './config/sinusbot/sinusbot' &>> /config/sinusbot.log &
