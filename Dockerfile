@@ -38,7 +38,9 @@ RUN \
  apt-get clean && \
  rm -rf \
 	/var/lib/apt/lists/* \
-	/var/tmp/*
+	/var/tmp/* && \
+
+useradd sinusbot
 
 # ports and volumes
 EXPOSE 8087
